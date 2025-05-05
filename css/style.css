@@ -1,0 +1,657 @@
+:root {
+  --white-color: #dedbc8;
+  --yellow-first-color: #ffc448;
+  --yellow-second-color: #de9908;
+  --purple-first-color: #996cfe;
+  --purple-second-color: #6531d7;
+  --ciano-first-color: #00e6b4;
+  --ciano-second-color: #16a989;
+  --text-color: #333;
+  --avaliar-color: #7d20e1;
+  --font-family: Arial, sans-serif;
+  --border-radius: 50px;
+  --padding: 10px;
+  --container-sm: 320px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background-image: url('/images/bg-azul.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+body.bodycursos {
+  font-family: 'Segoe UI', sans-serif;
+  background-image: url(images/bg-roxo.jpg);
+  background-size: cover;
+  padding: 20px;
+  width: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--padding);
+  align-items: center;
+  max-height: 50px;
+  background-color: var(--white-color);
+}
+
+header img {
+  width: 70px;
+  height: 50px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 100px);
+  padding: var(--padding);
+}
+
+.voltar {
+  margin-top: 10px;
+  margin-left: 10px;
+  background-color: var(--white-color);
+  min-height: 30px;
+  width: 80px;
+  border-radius: 50px 10px 10px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
+  position: fixed;
+}
+
+.btn-1,
+.btn-2,
+.btn-3 {
+  text-decoration: none;
+  display: flex;
+  appearance: auto;
+  width: calc(100% - 50px);
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  border-radius: var(--border-radius);
+}
+
+.dots-1,
+.dots-2,
+.dots-3 {
+  min-width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+/* Botão Amarelo */
+.btn-1 {
+  background-color: var(--yellow-first-color);
+  color: black;
+}
+
+/* Bolinha Botão Amarelo */
+.dots-1 {
+  background-color: var(--yellow-second-color);
+  color: var(--yellow-second-color);
+}
+
+/* Botão Roxo */
+.btn-2 {
+  background-color: var(--purple-first-color);
+  color: white;
+}
+
+/* Bolinha Botão Roxo */
+.dots-2 {
+  background-color: var(--purple-second-color);
+  color: var(--purple-second-color);
+}
+
+/* Botão Ciano */
+.btn-3 {
+  background-color: var(--ciano-first-color);
+  color: black;
+}
+
+/* Bolinha Botão Ciano */
+.dots-3 {
+  background-color: var(--ciano-second-color);
+  color: var(--ciano-second-color);
+}
+
+.avaliar {
+  text-decoration: none;
+  padding: 5px;
+  color: var(--avaliar-color);
+}
+
+.home-holder {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-conteiner {
+  width: calc(100% - 70px);
+  height: fit-content;
+  background-color: var(--white-color);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 20px 0px;
+}
+
+.home-conteiner a p {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background-color: #e2decb;
+  border-radius: 15px;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.buttons {
+  display: flex;
+}
+
+.corpo {
+  background-color: #7a0f0f;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px 0;
+  margin-bottom: 15px;
+}
+
+.user-type {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.user-btn {
+  background-color: #f1f1f1;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  flex: 1;
+  margin: 0 3px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 30px;
+  display: inline-block;
+  position: relative;
+  opacity: 1;
+  transition: opacity 0.5s ease, transform 0.3s ease;
+}
+
+.user-btn:hover {
+  transform: scale(1.1);
+}
+
+.user-btn.fade-out {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+.user-btn.active {
+  background-color: #004d40;
+  color: white;
+}
+
+.form label {
+  display: block;
+  margin-bottom: 3px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.form input,
+.form select {
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+.verificar-btn {
+  background-color: #c8413a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 10px;
+  margin: 15px auto;
+  cursor: pointer;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  display: block;
+}
+
+.verificar-btn:hover {
+  background-color: #a6342e;
+}
+
+/* Login aluno */
+.lg-holder {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.lg-holder a {
+  appearance: none;
+  text-decoration: none;
+  color: black;
+}
+
+.lg-holder input {
+  outline: none;
+  border: none;
+  padding: 10px;
+  width: calc(100% - 20px);
+  box-shadow: inset 0px 3px 5px rgba(0, 0, 0, 0.486);
+  border-radius: 10px;
+}
+
+.lg-container {
+  background-color: var(--white-color);
+  border-radius: 20px;
+  padding: 30px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.entrar {
+  position: relative;
+  top: 20px;
+  padding: 0px 10px;
+  border-radius: 10px;
+  background-color: #7a0f0f;
+  color: white;
+  height: 50px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.377);
+}
+
+.fm-holder {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 10px;
+}
+
+.ct-et-holder {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.ct-et-holder a,
+.ct-et-holder button {
+  border: none;
+  appearance: none;
+  height: 40px;
+  font-size: 15px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0px 5px;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+
+.dots-lg {
+  height: 30px;
+  width: 30px;
+  background-color: #333;
+  border-radius: 50%;
+}
+
+.g_id_signin {
+  margin-top: 8px;
+  display: flex;
+}
+
+/* Página da Feira */
+.home-conteiner-lg {
+  width: calc(100% - 30px);
+  max-height: calc(100% - 40px);
+  background-color: var(--white-color);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 10px;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.home-conteiner-lg p {
+  width: calc(100% - 50px);
+  text-align: justify;
+}
+
+.img-feira {
+  width: 20%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* btn da página do vestibulinho */
+.btn-4 {
+  flex: 1 1 25%;
+  min-width: 120px;
+  max-width: 200px;
+  height: 50px;
+  background-color: #DF8D8D;
+  color: #000000;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.botoes-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 2%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.botoes-centrais {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  min-width: 0;
+}
+
+
+/* Formato da img logo-mcm.jpg */
+.image-conteiner {
+  width: 50%;
+  height: auto;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-conteiner img {
+  width: 60%;
+  height: auto;
+  transform: translateX(-15%);
+}
+
+/* CSS Cursos */
+.banner {
+  background-color: var(--white-color);
+  padding: 10px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  width: 95%;
+}
+
+.logo-etec {
+  height: 60px;
+  margin-right: 10px;
+}
+
+.logo-cps {
+  height: 50px;
+  margin-left: 10px;
+}
+
+.banner h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--text-color);
+  text-align: center;
+  flex-grow: 1;
+}
+
+section {
+  background-color: #ffffff;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+section > div:first-child {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  gap: 15px;
+  height: 60px;
+}
+
+section h2 {
+  font-size: 18px;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.cursos {
+  background-color: #DEDBC8;
+  margin: 30%;
+  margin-top: 2%;
+  width: 700px;
+  border: none;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1000px;
+}
+
+.manha > div:first-child {
+  background-color: #FFC448;
+  border: none;
+  width: 650px;
+}
+
+.tarde > div:first-child {
+  background-color: #996CFE;
+  width: 650px;
+}
+
+.noite > div:first-child {
+  background-color: #00E6B4;
+  width: 650px;
+}
+
+section img {
+  height: 90px;
+}
+
+ul {
+  list-style: none;
+  padding: 10px 20px;
+}
+
+ul li {
+  background-color: #e7f1f0;
+  margin-bottom: 8px;
+  padding: 10px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul li a {
+  background-color: #16A989;
+  color: white;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+
+/*============================================================
+                     Início da PÁGINA DA FEIRA
+============================================================*/
+
+
+.home-conteiner-lg {
+  width: calc(100% - 30px);
+  max-height: calc(100% - 40px); /* Define uma altura máxima para o contêiner */
+  background-color: var(--white-color);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start; /* Alinha o conteúdo ao início para permitir rolagem */
+  border-radius: 10px;
+  overflow-y: auto; /* Habilita a rolagem vertical */
+  padding: 10px; /* Adiciona um pequeno espaçamento interno */
+}
+
+.home-conteiner-lg p {
+  width: calc(100% - 50px);
+  text-align: justify;
+}
+
+.img-feira{
+  width: 20%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* btn da página do vestibulinho */
+.btn-4 {
+  flex: 1 1 25%;
+  min-width: 120px;
+  max-width: 200px;
+  height: 50px;
+  background-color: #DF8D8D;
+  color: #000000;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.botoes-container{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 2%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.botoes-centrais{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  min-width: 0;
+}
+
+
+/*============================================================
+                      Fim da PÁGINA DA FEIRA
+============================================================*/
+
+/*============================================================
+                     Início PÁGINA Sobre etec
+============================================================*/
+
+
+/* mais sobre etec mcm */
+.home-conteiner a{
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+/* formato da img logo-mcm.jpg */
+.image-conteiner {
+  width: 50%;
+  height: auto;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-conteiner img {
+  width: 60%;
+  height: auto;
+  transform: translateX(-15%);
+}
+
+/*============================================================
+                      Fim da PÁGINA Sobre etec
+============================================================*/ 

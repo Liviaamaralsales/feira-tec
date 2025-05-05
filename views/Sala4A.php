@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="../css/style.css"> <!-- Caminho CSS -->
+ <title>Bloco A</title> <!-- Nome da Tela -->
+</head>
+<body>
+<header>
+<img src="images/mcm-logo.png" alt="logo-etec">
+<h1>Cadastro</h1> <!-- Nome da Tela -->
+<img src="images/cps-logo.png" alt="logo-cps">
+ </header>
+ <a href="" class="voltar">voltar</a>
+ <div class="titulo"><p class="titulo-e">Sala 1</p></div>
+ <main>
+  <div class="home-holder">
+    <div class="home-conteiner">
+      <div class="corpo"></div>
+      <div class="stands">
+        <div class="stand">Stand 1<br>Nome projeto</div>
+        <div class="stand">Stand 2<br>Nome projeto</div>
+        <div class="stand">Stand 1<br>Nome projeto</div>
+        <div class="stand">Stand 2<br>Nome projeto</div>
+        <div class="stand">Stand 1<br>Nome projeto</div>
+        <div class="stand">Stand 2<br>Nome projeto</div>
+        <div class="stand">Stand 1<br>Nome projeto</div>
+        <div class="stand">Stand 2<br>Nome projeto</div>
+        <!-- outros stands -->
+      </div>
+    </div>
+  </div>
+  </div>  
+ </main>
+</body>
+</html>
