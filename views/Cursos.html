@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Cursos</title>
+    <link rel="stylesheet" href="/css/master.css">
+    <script src="/JS/menu.js"></script>
+    <script src="/JS/configurações.js"></script>
+</head>
+<body>
+    <!-- ==========================================================
+                       INÍCIO NAV BAR (PÁGINA CURSOS)
+         ========================================================== -->
+    <header class="header-cursos">
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <div class="ORGInfoHeader">
+            <h1 class="h1-cursos">Title 1</h1>
+        </div>
+  </header>
+    <!-- ==========================================================
+                        FIM NAV BAR (PÁGINA CURSOS)
+         ========================================================== -->
+
+    <!-- ==========================================================
+                       INÍCIO CURSOS (PÁGINA CURSOS)
+         ========================================================== -->
+    <main>
+        <div class="logo-container">
+            <img src="" alt="Logo MCM" />
+        </div>
+
+        <div id="paginaCursos" style="display:none">
+            <div class="container">
+                <div class="cursos">
+                <br/><br/>
+
+                    <section class="manha">
+                        <div>
+                            <h2>Manhã: Ensino Médio com Técnico</h2>
+                        </div>
+                        <div class="manhaa">
+                        <ul>
+                            <li>Curso de Administração <a href="">Ver mais</a></li>
+                            <li>Curso de Recursos Humanos <a href="">Ver mais</a></li>
+                            <li>Curso de Informática Para Internet <a href="">Ver mais</a></li>
+                        </ul>
+                        </div>
+                    </section>
+
+                    <section class="tarde">
+                        <div>
+                            <h2>Tarde: Ensino Médio com Técnico</h2>
+                        </div>
+                        <div class="tardea">
+                        <ul>
+                            <li>Curso de Química <a href="">Ver mais</a></li>
+                            <li>Curso de Informática Para Internet <a href="">Ver mais</a></li>
+                        </ul>
+                        </div>
+                    </section>
+
+                    <section class="noite">
+                        <div>
+                            <h2>Noite: Só Técnico</h2>
+                        </div>
+                        <div class="noitea">
+                        <ul>
+                            <li>Curso de Química <a href="">Ver mais</a></li>
+                            <li>Curso de Contabilidade <a href="">Ver mais</a></li>
+                            <li>Curso de Logística <a href="">Ver mais</a></li>
+                            <li>Curso de Administração <a href="">Ver mais</a></li>
+                        </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- ==========================================================
+                        FIM CURSOS (PÁGINA CURSOS)
+         ========================================================== -->
+
+    <!-- ==========================================================
+                    INÍCIO MENU (PÁGINA CONFIGURAÇÕES)
+         ========================================================== -->
+    <div id="mySideMenu" class="side-menu">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
+        <a href="#">Mapa</a>
+        <a href="#">Avaliação</a>
+        <a href="#">Projetos</a>
+        <a href="#">Ranking</a>
+        <a href="#" onclick="mostrarPagina('paginaCursos')">Cursos</a>
+        <a href="#">Sobre a Etec</a>
+        <a href="#" onclick="mostrarPagina('paginaConfiguracoes')">Configurações</a>
+    </div>
+    <!-- ==========================================================
+                    FIM MENU (PÁGINA CONFIGURAÇÕES)
+         ========================================================== -->
+</body>
+</html>

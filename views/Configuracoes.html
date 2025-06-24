@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Configurações</title>
+    <link rel="stylesheet" href="/css/master.css">
+    <script src="/JS/menu.js"></script>
+    <script src="/JS/configurações.js"></script>
+</head>
+<body>
+    <!-- ==========================================================
+                    INÍCIO NAV BAR (PÁGINA CONFIGURAÇÕES)
+         ========================================================== -->
+    <header>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="logo-container">
+            <img src="/img/etecmcm.png" alt="Logo MCM"/>
+        </div>
+        <div class="ORGInfoHeader">
+            <h1>Inicio</h1>
+        </div>
+    </header>
+    <!-- ==========================================================
+                        FIM NAV BAR (PÁGINA CONFIGURAÇÕES)
+         ========================================================== -->
+
+    <!-- ==========================================================
+                INÍCIO CONFIGURAÇÕES (PÁGINA CONFIGURAÇÕES)
+         ========================================================== -->
+    <main>
+        <div id="paginaConfiguracoes" style="display:none">
+            <div class="config-box">
+                <label for="textSize">Tamanho do Texto</label>
+                <div class="slider-container">
+                    <span id="textSizeValue">15</span>
+                    <input type="range" id="textSize" min="10" max="30" value="15" />
+                </div>
+            </div>
+
+            <div class="config-box">
+                <label for="colorBlind">Daltonismo</label>
+                <select id="colorBlind">
+                    <option value="nenhum">Nenhum</option>
+                    <option value="protanopia">Protanopia</option>
+                    <option value="deuteranopia">Deuteranopia</option>
+                    <option value="tritanopia">Tritanopia</option>
+                </select>
+            </div>
+
+            <div class="libras-option">
+                <span>Libras</span>
+                <input type="checkbox" id="librasToggle" />
+            </div>
+        </div>
+    </main>
+    <!-- ==========================================================
+                    FIM CONFIGURAÇÕES (PÁGINA CONFIGURAÇÕES)
+         ========================================================== -->
+
+    <!-- ==========================================================
+                    INÍCIO MENU (PÁGINA CONFIGURAÇÕES)
+         ========================================================== -->
+    <div id="mySideMenu" class="side-menu">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
+        <a href="#">Mapa</a>
+        <a href="#">Avaliação</a>
+        <a href="#">Projetos</a>
+        <a href="#">Ranking</a>
+        <a href="#" onclick="mostrarPagina('paginaCursos')">Cursos</a>
+        <a href="#">Sobre a Etec</a>
+        <a href="#" onclick="mostrarPagina('paginaConfiguracoes')">Configurações</a>
+    </div>
+    <!-- ==========================================================
+                    FIM MENU (PÁGINA CONFIGURAÇÕES)
+         ========================================================== -->
+</body>
+</html>
