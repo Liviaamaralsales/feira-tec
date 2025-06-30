@@ -857,120 +857,166 @@
 /*  ==========================================================
                   INICIO CSS PÁGINA ODS.html
     ==========================================================*/
-    /* ADICIONADO: Container principal das ODS */
-      .ods-main-container {
-        padding: 20px;
-        margin-top: 30px;
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
-      }
+/* ===== ESTILOS PARA A PÁGINA ODS ===== */
 
-      /* ADICIONADO: Grid responsivo para as ODS */
-      .ods-cards-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-        margin-bottom: 30px;
-        width: 100%;
-      }
+/* Container principal da página */
+.ods-main-container {
+  padding: 20px;
+  margin-top: 100px;
+}
 
-      /* ADICIONADO: Container individual de cada ODS com brilho fixo */
-      .ods-container {
-        text-align: center;
-        cursor: pointer;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        background-color: rgba(255, 255, 255, 0.1);
-        border-radius: 15px;
-        padding: 15px;
-        /* ADICIONADO: Brilho fixo - múltiplas camadas de box-shadow */
-        box-shadow: 
-          0 0 10px rgba(78, 205, 196, 0.4),
-          0 0 20px rgba(78, 205, 196, 0.3),
-          0 0 30px rgba(78, 205, 196, 0.2),
-          0 4px 8px rgba(0,0,0,0.1);
-        border: 1px solid rgba(78, 205, 196, 0.3);
-      }
+/* Container das imagens ODS em grid */
+.ods-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+  max-width: 100%;
+  padding: 0 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-      /* ADICIONADO: Efeito hover nas ODS - intensifica o brilho */
-      .ods-container:hover {
-        transform: scale(1.05);
-        box-shadow: 
-          0 0 15px rgba(78, 205, 196, 0.6),
-          0 0 30px rgba(78, 205, 196, 0.4),
-          0 0 45px rgba(78, 205, 196, 0.3),
-          0 6px 15px rgba(0,0,0,0.2);
-        border: 1px solid rgba(78, 205, 196, 0.5);
-      }
+/* Para telas pequenas - força 2 colunas */
+@media (max-width: 768px) {
+  .ods-cards-container {
+    grid-template-columns: 1fr 1fr;
+    max-width: 280px;
+    gap: 12px;
+  }
+}
 
-      /* ADICIONADO: Estilo das imagens das ODS */
-      .ods-image {
-        width: 100%;
-        max-width: 200px;
-        height: auto;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        display: block;
-        margin: 0 auto 15px auto;
-      }
+/* Container individual de cada ODS */
+.ods-container {
+  cursor: pointer;
+  transition: transform 0.2s;
+  text-align: center;
+}
 
-      /* ADICIONADO: Descrição das ODS */
-      .ods-description {
-        font-size: 14px;
-        color: #333;
-        line-height: 1.4;
-        text-align: justify;
-      }
+.ods-container:hover {
+  transform: scale(1.05);
+}
 
-      /* ADICIONADO: Botão Saiba Mais com brilho */
-      .saiba-mais-btn {
-        background-color: white;
-        color: #4ecdc4;
-        border: none;
-        padding: 12px 30px;
-        border-radius: 25px;
-        font-weight: bold;
-        cursor: pointer;
-        margin: 20px auto;
-        display: block;
-        box-shadow: 
-          0 0 8px rgba(78, 205, 196, 0.3),
-          0 4px 8px rgba(0,0,0,0.2);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
+/* Imagens das ODS */
+.ods-image {
+  width: 100%;
+  height: auto;
+  max-width: 130px; /* Aumentado para 130px */
+  border-radius: 8px; /* Voltou para 8px */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Sombra original */
+  display: block;
+  margin: 0 auto;
+}
 
-      /* ADICIONADO: Efeito hover do botão - intensifica o brilho */
-      .saiba-mais-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 
-          0 0 12px rgba(78, 205, 196, 0.5),
-          0 6px 12px rgba(0,0,0,0.3);
-      }
+/* Descrições das ODS */
+.ods-description {
+  font-size: 11px; /* Texto legível */
+  color: #666;
+  margin-top: 8px;
+  line-height: 1.3;
+  display: block; /* Voltou a aparecer */
+  padding: 0 5px; /* Pequeno padding lateral */
+}
 
-      /* ADICIONADO: Área de texto informativo com brilho sutil */
-      .text-area {
-        background-color: rgba(255,255,255,0.9);
-        border-radius: 15px;
-        padding: 20px;
-        min-height: 80px;
-        border: 2px dashed #ccc;
-        margin-bottom: 20px;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-        box-shadow: 
-          0 0 5px rgba(78, 205, 196, 0.2),
-          0 2px 8px rgba(0,0,0,0.1);
-      }
+/* Botão Saiba Mais */
+.saiba-mais-btn {
+  background-color: white;
+  color: #4ecdc4;
+  border: none;
+  padding: 10px 25px; /* Diminuído de 12px 30px */
+  border-radius: 20px; /* Diminuído de 25px */
+  font-weight: bold;
+  cursor: pointer;
+  margin: 15px auto; /* Diminuído de 20px */
+  display: block;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2); /* Sombra menor */
+  transition: transform 0.3s ease;
+  font-size: 14px; /* Adicionado tamanho de fonte menor */
+}
 
-      /* ADICIONADO: Texto da área informativa */
-      .text-area p {
-        color: #333;
-        font-size: 14px;
-        margin: 0;
-        line-height: 1.6;
-        text-align: center;
-      }
+.saiba-mais-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Área de texto */
+.text-area {
+  background-color: rgba(255,255,255,0.7);
+  border-radius: 10px; /* Voltou para 10px */
+  padding: 15px; /* Voltou para 15px */
+  min-height: 70px; /* Tamanho intermediário */
+  border: 2px dashed #ccc;
+  margin-bottom: 20px; /* Voltou para 20px */
+  max-width: 280px; /* Acompanha o container */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-area p {
+  color: #666;
+  font-size: 11px; /* Diminuído de 12px */
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .ods-cards-container {
+    grid-template-columns: 1fr 1fr;
+    max-width: 280px;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 375px) {
+  .ods-cards-container {
+    max-width: 260px;
+    gap: 10px;
+  }
+  
+  .ods-main-container {
+    padding: 15px;
+    margin-top: 80px;
+  }
+
+  .ods-image {
+    max-width: 120px;
+  }
+
+  .text-area {
+    max-width: 260px;
+    padding: 12px;
+  }
+
+  .ods-description {
+    font-size: 10px;
+  }
+}
+
+/* Para telas médias - 3 a 4 colunas */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .ods-cards-container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    max-width: 600px;
+    gap: 20px;
+  }
+}
+
+/* Para telas grandes - layout flexível */
+@media (min-width: 1025px) {
+  .ods-cards-container {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    max-width: 900px;
+    gap: 25px;
+  }
+  
+  .ods-image {
+    max-width: 160px;
+  }
+  
+  .text-area {
+    max-width: 600px;
+  }
+}
 /*  ==========================================================
                     FIM CSS PÁGINA ODS.html
     ==========================================================*/
