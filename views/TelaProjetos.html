@@ -1,0 +1,315 @@
+<!-- Feito por Sabrina -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titulo Página</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/TelaProjetos.css">
+</head>
+
+<body class="telaProjetos">
+    <header>
+        <input type="checkbox" id="BTNMenu" />
+        <div id="Menu">
+            <label for="BTNMenu">
+                <img src="IconMenu.png" alt="BTNMenu" width="40px" height="40px" />
+            </label>
+            <ul id="MenuHolder">
+                <li class="BTNSMenu"><a href="">Botão</a></li>
+            </ul>
+        </div>
+        <div class="ORGInfoHeader">
+            <img src="" alt="Logo MCM" />
+            <h1>Projetos</h1>
+        </div>
+    </header>
+
+    <!-- Filtros -->
+    <section class="filter-section">
+        <!-- Filtro por Curso -->
+        <div class="filter-container">
+            <button class="filter-btn" onclick="toggleDropdown('curso')">CURSO</button>
+            <div class="dropdown-menu" id="dropdown-curso">
+                <label>Selecione o curso:</label>
+                <select id="select-curso" onchange="applyFilter('curso', this.value)">
+                    <option value="">Todos os cursos</option>
+                    <option value="TI">Tecnologia da Informação</option>
+                    <option value="QUIM">Química</option>
+                    <option value="ADM">Administração</option>
+                    <option value="LOG">Logística</option>
+                    <option value="RH">Recursos Humanos</option>
+                    <option value="CONT">Contabilidade</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Filtro por Bloco -->
+        <div class="filter-container">
+            <button class="filter-btn" onclick="toggleDropdown('bloco')">BLOCO</button>
+            <div class="dropdown-menu" id="dropdown-bloco">
+                <label>Selecione o bloco:</label>
+                <select id="select-bloco" onchange="applyFilter('bloco', this.value)">
+                    <option value="">Todos os blocos</option>
+                    <option value="A">Bloco A</option>
+                    <option value="B">Bloco B</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Filtro por Série -->
+        <div class="filter-container">
+            <button class="filter-btn" onclick="toggleDropdown('serie')">SÉRIE</button>
+            <div class="dropdown-menu" id="dropdown-serie">
+                <label>Selecione a série:</label>
+                <select id="select-serie" onchange="applyFilter('serie', this.value)">
+                    <option value="">Todas as séries</option>
+                    <option value="1">Primeiro ano</option>
+                    <option value="2">Segundo ano</option>
+                    <option value="3">Terceiro ano</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Pesquisa por Nome do Aluno -->
+        <div class="filter-container">
+            <button class="filter-btn search-btn" onclick="toggleDropdown('aluno')">Nome do aluno</button>
+            <div class="dropdown-menu" id="dropdown-aluno">
+                <label>Digite o nome do aluno:</label>
+                <input type="text" id="input-aluno" placeholder="Nome do aluno">
+                <button onclick="applyFilter('aluno', document.getElementById('input-aluno').value)">Buscar</button>
+            </div>
+        </div>
+
+        <!-- Pesquisa por ODS -->
+        <div class="filter-container">
+            <button class="filter-btn search-btn" onclick="toggleDropdown('ods')">ODS</button>
+            <div class="dropdown-menu" id="dropdown-ods">
+                <label>Digite o tema ODS:</label>
+                <input type="text" id="input-ods" placeholder="Tema relacionado aos ODS">
+                <button onclick="applyFilter('ods', document.getElementById('input-ods').value)">Buscar</button>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <!-- Grid de projetos -->
+        <div class="projetos-grid">
+            <div class="container-projeto" data-curso="ADM" data-bloco="B" data-serie="2" data-aluno="João Silva" data-ods="Educação de Qualidade">
+                <div class="foto-perfil"></div>
+                <div class="projetos">
+                    <div class="projeto-nome adm">Projeto nome - ADM</div>
+                    <div class="projeto-lugar">Sala 2, Stand 5 - Bloco B</div>
+                </div>
+            </div>
+
+            <div class="container-projeto" data-curso="LOG" data-bloco="A" data-serie="3" data-aluno="Maria Santos" data-ods="Cidades Sustentáveis">
+                <div class="foto-perfil"></div>
+                <div class="projetos">
+                    <div class="projeto-nome log">Projeto nome - LOG</div>
+                    <div class="projeto-lugar">Sala 2, Stand 5 - Bloco B</div>
+                </div>
+            </div>
+
+            <div class="container-projeto" data-curso="QUIM" data-bloco="B" data-serie="1" data-aluno="Pedro Costa" data-ods="Água Limpa">
+                <div class="foto-perfil"></div>
+                <div class="projetos">
+                    <div class="projeto-nome quim">Projeto nome - QUIM</div>
+                    <div class="projeto-lugar">Sala 2, Stand 5 - Bloco B</div>
+                </div>
+            </div>
+
+            <div class="container-projeto" data-curso="RH" data-bloco="A" data-serie="2" data-aluno="Ana Oliveira" data-ods="Trabalho Decente">
+                <div class="foto-perfil"></div>
+                <div class="projetos">
+                    <div class="projeto-nome rh">Projeto nome - RH</div>
+                    <div class="projeto-lugar">Sala 2, Stand 5 - Bloco B</div>
+                </div>
+            </div>
+
+            <div class="container-projeto" data-curso="CONT" data-bloco="B" data-serie="3" data-aluno="Carlos Ferreira" data-ods="Crescimento Econômico">
+                <div class="foto-perfil"></div>
+                <div class="projetos">
+                    <div class="projeto-nome cont">Projeto nome - CONT</div>
+                    <div class="projeto-lugar">Sala 2, Stand 5 - Bloco B</div>
+                </div>
+            </div>
+
+            <div class="container-projeto" data-curso="TI" data-bloco="A" data-serie="1" data-aluno="Lucas Rodrigues" data-ods="Inovação">
+                <div class="foto-perfil"></div>
+                <div class="projetos">
+                    <div class="projeto-nome ti">Projeto nome - TI</div>
+                    <div class="projeto-lugar">Sala 2, Stand 5 - Bloco B</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+	// Função para aplicar cores automaticamente baseado no curso
+function applyCourseColors() {
+    const projetoNomes = document.querySelectorAll('.projeto-nome');
+    
+    projetoNomes.forEach(elemento => {
+        const texto = elemento.textContent.toUpperCase();
+        
+        // Remove classes existentes
+        elemento.classList.remove('ti', 'quim', 'adm', 'log', 'rh', 'cont');
+        
+        // Aplica a classe baseada no curso encontrado no texto
+        if (texto.includes('TI')) {
+            elemento.classList.add('ti');
+        } else if (texto.includes('QUIM')) {
+            elemento.classList.add('quim');
+        } else if (texto.includes('ADM')) {
+            elemento.classList.add('adm');
+        } else if (texto.includes('LOG')) {
+            elemento.classList.add('log');
+        } else if (texto.includes('RH')) {
+            elemento.classList.add('rh');
+        } else if (texto.includes('CONT')) {
+            elemento.classList.add('cont');
+        }
+    });
+}
+
+// Função para toggle dos dropdowns
+function toggleDropdown(filterType) {
+    // Fecha todos os outros dropdowns
+    const allDropdowns = document.querySelectorAll('.dropdown-menu');
+    const allButtons = document.querySelectorAll('.filter-btn');
+    
+    allDropdowns.forEach(dropdown => {
+        if (dropdown.id !== `dropdown-${filterType}`) {
+            dropdown.classList.remove('show');
+        }
+    });
+    
+    allButtons.forEach(btn => {
+        if (btn.onclick.toString().indexOf(filterType) === -1) {
+            btn.classList.remove('active');
+        }
+    });
+    
+    // Toggle do dropdown atual
+    const currentDropdown = document.getElementById(`dropdown-${filterType}`);
+    const currentButton = event.target;
+    
+    currentDropdown.classList.toggle('show');
+    currentButton.classList.toggle('active');
+}
+
+// Função para aplicar filtros
+function applyFilter(filterType, value) {
+    console.log(`Filtering by ${filterType}:`, value);
+    
+    const cards = document.querySelectorAll('.container-projeto');
+    
+    if (!value || value === '') {
+        // Se não há valor, mostra todos os cards
+        cards.forEach(card => {
+            card.style.display = 'flex';
+        });
+        return;
+    }
+    
+    cards.forEach(card => {
+        let shouldShow = false;
+        
+        switch(filterType) {
+            case 'curso':
+                shouldShow = card.dataset.curso === value;
+                break;
+            case 'bloco':
+                shouldShow = card.dataset.bloco === value;
+                break;
+            case 'serie':
+                shouldShow = card.dataset.serie === value;
+                break;
+            case 'aluno':
+                shouldShow = card.dataset.aluno.toLowerCase().includes(value.toLowerCase());
+                break;
+            case 'ods':
+                shouldShow = card.dataset.ods.toLowerCase().includes(value.toLowerCase());
+                break;
+        }
+        
+        card.style.display = shouldShow ? 'flex' : 'none';
+    });
+    
+    // Fecha o dropdown após aplicar o filtro
+    const dropdown = document.getElementById(`dropdown-${filterType}`);
+    const button = document.querySelector(`[onclick*="${filterType}"]`);
+    dropdown.classList.remove('show');
+    button.classList.remove('active');
+}
+
+// Função para limpar todos os filtros
+function clearAllFilters() {
+    const cards = document.querySelectorAll('.container-projeto');
+    cards.forEach(card => {
+        card.style.display = 'flex';
+    });
+    
+    // Limpa os valores dos inputs e selects
+    document.getElementById('select-curso').value = '';
+    document.getElementById('select-bloco').value = '';
+    document.getElementById('select-serie').value = '';
+    document.getElementById('input-aluno').value = '';
+    document.getElementById('input-ods').value = '';
+}
+
+// Fecha dropdown ao clicar fora
+document.addEventListener('click', function(event) {
+    if (!event.target.closest('.filter-container')) {
+        const allDropdowns = document.querySelectorAll('.dropdown-menu');
+        const allButtons = document.querySelectorAll('.filter-btn');
+        
+        allDropdowns.forEach(dropdown => {
+            dropdown.classList.remove('show');
+        });
+        
+        allButtons.forEach(btn => {
+            btn.classList.remove('active');
+        });
+    }
+});
+
+// Efeitos visuais nos cards
+document.addEventListener('DOMContentLoaded', function() {
+    // Aplica as cores dos cursos
+    applyCourseColors();
+    
+    const cards = document.querySelectorAll('.container-projeto');
+    
+    cards.forEach((card, index) => {
+        // Animação de entrada
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+            card.style.transition = 'all 0.5s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, index * 100);
+    });
+});
+
+// Permite pesquisa com Enter nos campos de input
+document.getElementById('input-aluno').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        applyFilter('aluno', this.value);
+    }
+});
+
+document.getElementById('input-ods').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        applyFilter('ods', this.value);
+    }
+});
+    </script>
+</body>
+</html>
