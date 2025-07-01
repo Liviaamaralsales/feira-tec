@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="login.css" />
+
+  <title>Tela de Login</title>
+</head>
+<body class="TelaLogin">
+  <div class="container">
+    <div class="top">
+      <img src="img/etecmcm.png" alt="Logo" class="logo" />
+    </div>
+
+    <div class="form-container">
+      <form id="loginForm">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu email" required />
+
+        <label for="senha">Senha</label>
+        <div class="senha-container">
+          <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required />
+          <span class="olho" id="olho" onclick="toggleSenha()">😐</span>
+        </div>
+
+        <!--  aqui é necessário trocar o caminho para puxar a página certa  -->
+        <a href="recuperar-senha.html" class="esqueci">Esqueci minha senha</a>
+
+        <div class="botoes">
+          <button type="button" class="google">
+            Entrar com <img src="img/LogoGoogle.png" alt="Google" />
+          </button>
+          <button type="submit">Entrar</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="cadastrar-container">
+      <button class="cadastrar" onclick="window.location.href='TelaCadastro.html'">
+        Cadastrar
+      </button>
+    </div>
+  </div>
+
+  <div class="login-texto">LOGIN</div>
+
+  <script>
+    const olho = document.getElementById('olho');
+    const inputSenha = document.getElementById('senha');
+    let piscando = true;
+    let intervaloPiscar;
+
+    function piscarEmoji() {
+      if (!piscando) return;
+      olho.textContent = '😑';
+      setTimeout(() => {
+        if (piscando) olho.textContent = '😐';
+      }, 80);
+    }
+
+    function iniciarPiscar() {
+      olho.textContent = '😐';
+      piscando = true;
+      intervaloPiscar = setInterval(piscarEmoji, 2000);
+    }
+
+    function pararPiscar() {
+      piscando = false;
+      clearInterval(intervaloPiscar);
+    }
+
+    function toggleSenha() {
+      if (inputSenha.type === 'password') {
+        inputSenha.type = 'text';
+        pararPiscar();
+        olho.textContent = '😑';
+      } else {
+        inputSenha.type = 'password';
+        iniciarPiscar();
+        olho.textContent = '😐';
+      }
+    }
+
+    iniciarPiscar();
+
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Login realizado com sucesso!');
+    });
+  </script>
+</body>
+</html>
