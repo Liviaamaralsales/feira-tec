@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="pt-BR">
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -10,11 +10,9 @@
       rel="stylesheet"
     />
     <title>Locais</title>
-
-    <link rel="stylesheet" href="/css/Locais.css">
-</head>
-<body class="telaLocais">
-    <header class="header-locais">
+  </head>
+  <body class="telaTal">
+    <header>
 
       <div class="menu-toggle" id="mobile-menu">
         <span class="bar"></span>
@@ -44,33 +42,26 @@
     </div>
 
     <script>
-      document
-        .getElementById("mobile-menu")
-        .addEventListener("click", function () {
-          this.classList.toggle("active");
-          openMenu();
-        });
+      document.getElementById('mobile-menu').addEventListener('click', function() {
+        this.classList.toggle('active');
+        openMenu();
+      });
 
       function openMenu() {
-        document.getElementById("mySideMenu").style.width = "250px";
+        document.getElementById('mySideMenu').style.width = '250px';
       }
 
       function closeMenu() {
-        document.getElementById("mySideMenu").style.width = "0";
-        document.getElementById("mobile-menu").classList.remove("active");
+        document.getElementById('mySideMenu').style.width = '0';
+        document.getElementById('mobile-menu').classList.remove('active');
       }
     </script>
-
     <section class="BTNLocais">
-        <button> Bloco A</button>
-        <br>
-        <button> Bloco B </button>
-        <br>
-        <button> Biblioteca </button>
-        <br>
-        <button> Auditório </button>
-        <br>
-        <button> Quadra </button>
+        <button onclick="window.location.href='locais/blocoA.html'"> Bloco A</button>
+        <button onclick="window.location.href='locais/blocoB.html'"> Bloco B </button>
+        <button onclick="window.location.href='locais/biblioteca.html'"> Biblioteca </button>
+        <button onclick="window.location.href='locais/auditorio.html'"> Auditório </button>
+        <button onclick="window.location.href='locais/quadra.html'"> Quadra </button>
     </section>
-</body>
+  </body>
 </html>
