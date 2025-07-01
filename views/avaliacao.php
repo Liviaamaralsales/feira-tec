@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/Avaliacao.css">
+    <link rel="stylesheet" href="/assets/css/Avaliacao.css">
 </head>
 
   <body class="telaAvaliacao">
@@ -24,7 +24,7 @@
 
     <main>
       <div class="logo-container">
-        <img src="/img/etecmcm.png" alt="Logo MCM" />
+        <img src="/assets/img/etecmcm.png" alt="Logo MCM" />
       </div>
     
         <div class="avaliacao-container">
