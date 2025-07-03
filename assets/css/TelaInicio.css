@@ -1,3 +1,4 @@
+
 /* Menu Toggle */
 .menu-toggle {
     display: flex;
@@ -88,7 +89,12 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+  }
+
+  h1 {
+    font-family: var(--FONTTitulo);
+    font-size: var(--FONTTituloSIZE);
+  }
 
 ::-webkit-scrollbar {
     display: none;
@@ -137,28 +143,33 @@ ul#MenuHolder {
 }
 
 .logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    top: 20px;
-}
-
-.logo-container img {
-    width: 80px;
-    height: 80px;
-}
-
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: 20px;
+      }
+      .logo-container img {
+        width: 80px;
+        height: 80px;
+      }
+      .ORGInfoHeader {
+        display: flex;
+        gap: 50%;
+        justify-content: flex-end;
+      }
 .ORGInfoHeader {
     display: flex;
     gap: 50%;
     justify-content: flex-end;
 }
 
-h1 {
-    font-family: var(--FONTTitulo);
-    font-size: var(--FONTTituloSIZE);
-}
+header{
+        display: flex;
+        align-items: center;
+    }
+
+
 
 button {
     --glow-color: rgb(255, 255, 255);
@@ -252,4 +263,26 @@ button:active {
     left: -30px;
     font-size: calc(var(--FONTTituloSIZE) - 10px);
     font-family: var(--FONTTitulo);
+
+
+
+   
 }
+
+
+
+    body{
+        background-color: aquamarine;
+    }
+
+    main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding-top: 20px;
+    align-items: center;
+    gap: 20px;
+}
+
+
+
