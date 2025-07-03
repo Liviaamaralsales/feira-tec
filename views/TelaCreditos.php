@@ -25,12 +25,12 @@
     <div id="mySideMenu" class="side-menu">
         <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
         <a href="#">Mapa</a>
-        <a href="#">Avaliação</a>
-        <a href="#">Projetos</a>
-        <a href="#">Ranking</a>
-        <a href="#">Cursos</a>
-        <a href="#">Sobre a Etec</a>
-        <a href="#">Configurações</a>
+        <a href="TelaAvaliacao.html">Avaliação</a>
+        <a href="TelaProjetos.html">Projetos</a>
+        <a href="TelaRanking.html">Ranking</a>
+        <a href="TelaCursos.html">Cursos</a>
+        <a href="TelaSobreEtec.html">Sobre a Etec</a>
+        <a href="TelaConfiguracoes.html">Configurações</a>
     </div>
 
     <div class="logo-container">
