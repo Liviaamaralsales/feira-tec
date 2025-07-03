@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <title>Layout de Equipes</title>
-  <link rel="stylesheet" href="/assets/css/TelaCreditos.css">
+  <link rel="stylesheet" href="TelaCreditos.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&display=swap" rel="stylesheet">
+    
     
   <style>
 
@@ -15,33 +16,24 @@
 </head>
 <body class="Creditos_body">
 
+<header>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="logo-container">
+            <img src="etecmcm.png" alt="Logo MCM"/>
+        </div>
+        <div class="ORGInfoHeader">
+            <h1 class="h1-Creditos">Creditos</h1>
+        </div>
+    </header>
 
-    <div class="menu-toggle" id="mobile-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </div>
 
-    <div id="mySideMenu" class="side-menu">
-        <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
-        <a href="#">Mapa</a>
-        <a href="TelaAvaliacao.html">Avaliação</a>
-        <a href="TelaProjetos.html">Projetos</a>
-        <a href="TelaRanking.html">Ranking</a>
-        <a href="TelaCursos.html">Cursos</a>
-        <a href="TelaSobreEtec.html">Sobre a Etec</a>
-        <a href="TelaConfiguracoes.html">Configurações</a>
-    </div>
+  
 
-    <div class="logo-container">
-        <img src="etecmcm.png" alt="Logo MCM"/>
-      </div>
-
-  <nav>
-        <h1 class="titulo_creditos">Créditos</h1>
-         <br>
-         <br>
-    </nav>
+   
 
   <main style="padding: 0">
     <div class="container">
@@ -199,6 +191,19 @@
 
     </div>
   </main>
+
+  <div id="mySideMenu" class="side-menu">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
+        <a href="#">Mapa</a>
+        <a href="TelaAvaliacao.html">Avaliação</a>
+        <a href="TelaProjetos.html">Projetos</a>
+        <a href="TelaRanking.html">Ranking</a>
+        <a href="TelaCursos.html">Cursos</a>
+        <a href="TelaSobreEtec.html">Sobre a Etec</a>
+        <a href="TelaConfiguracoes.html">Configurações</a>
+    </div>
+
+
 </body>
  <script>
         document.getElementById('mobile-menu').addEventListener('click', function() {
