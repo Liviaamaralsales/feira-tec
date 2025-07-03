@@ -1,4 +1,4 @@
-
+      
 .menu-toggle {
   display: flex;
   flex-direction: column;
@@ -84,11 +84,16 @@
 }
 /*NÃO MEXER NEM EDITAR O CODIGO*/
 header {
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h1 {
+    font-family: var(--FONTTitulo);
+    font-size: var(--FONTTituloSIZE);
+  }
 #BTNMenu {
   display: none;
 }
@@ -227,4 +232,13 @@ button:active {
     background-repeat: no-repeat;
     background-size: cover;
   }
+}
+
+ main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding-top: 20px;
+    align-items: center;
+    gap: 20px;
 }
