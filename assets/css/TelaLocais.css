@@ -1,5 +1,4 @@
-
-      .menu-toggle {
+.menu-toggle {
         display: flex;
         flex-direction: column;
         width: 30px;
@@ -68,26 +67,24 @@
         background-color: transparent;
       }
 
-      /*aqui é o style provisorio para mostrar a base do css, n sera usado ele dessa forma tem que usar o arquivo principal style.css*/
-
-      /*reset de css padrão*/
       * {
         padding: 0;
         margin: 0;
       }
-       :root {
+      :root {
         --FONTTitulo: Karantina;
         --FONTTituloSIZE: 40px;
         --FONTBTNSMenu: arial;
         --COLORBTNSMenu: black;
         --BACKGROUNDCOLORBTNSMenu: rgba(255, 255, 255, 0.5);
       }
-      /*NÃO MEXER NEM EDITAR O CODIGO*/
+
       header {
         padding: 10px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 50px;
       }
       #BTNMenu {
         display: none;
@@ -108,7 +105,6 @@
         display: none;
       }
       ul#MenuHolder li.BTNSMenu a {
-        appearance: auto;
         text-decoration: none;
         color: var(--COLORBTNSMenu);
         font-family: var(--FONTBTNSMenu);
@@ -144,17 +140,6 @@
         font-family: var(--FONTTitulo);
         font-size: var(--FONTTituloSIZE);
       }
-      h5 {
-        font-family: var(--FONTTitulo);
-        font-size: 30px;
-      }
-      a{
-        text-decoration: none;
-      }
-      p{
-        font-family: var(--FONTTitulo);
-        font-size: 20px;
-      }
       button {
         --glow-color: rgb(255, 255, 255);
         --glow-spread-color: rgb(255, 255, 255);
@@ -169,23 +154,11 @@
         font-weight: bold;
         background-color: rgba(255, 255, 255, 0.6);
         outline: none;
-        box-shadow: 0 0 0p 2pxem white;
+        box-shadow: 0 0 4px white;
         text-shadow: 0 0 0.5em var(--glow-color);
         position: relative;
         transition: all 0.2s;
         border-radius: 4px;
-      }
-      button::after {
-        pointer-events: none;
-        content: "";
-        position: absolute;
-        top: 120%;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        filter: blur(2em);
-        opacity: 0.7;
-        transform: perspective(1.5em) rotateX(35deg) scale(1, 0.6);
       }
       button:hover {
         color: var(--btn-color);
@@ -199,74 +172,30 @@
         box-shadow: 0 0 5px 2px var(--glow-color),
           inset 0 0 5px 2px var(--glow-color);
       }
-        .BTNLocais {
-            text-align: center; display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
+      .btnLocal {
+        width: 200px;
+        margin: 10px auto;
+        display: block;
+      }
 
-        .BTNLocais button{
-          margin-top: 20px;
-          width: 200px;
-        }
-      /*===================================================
-        Responsividade via Media NÃO alterar
-        os @media, alterar apenas o
-        background-image para os respectivas telas
-      ===================================================*/
-      /*Estido de fundo que o body tera no Tablet*/
       @media (min-width: 768px) {
         body.telaLocais {
-          background-image: url(img/LocaisDeitado.jpg); /*aqui tem que substituir pelo caminho da foto para o fundo*/
+          background-image: url(img/LocaisDeitado.jpg);
           background-repeat: no-repeat;
           background-size: cover;
         }
       }
-      /*Estido de fundo que o body tera no Tablet*/
       @media (min-width: 375px) and (max-width: 768px) {
         body.telaLocais {
-          background-image: url(img/LocaisHoriz.jpg); /*aqui tem que substituir pelo caminho da foto para o fundo*/
+          background-image: url(img/LocaisHoriz.jpg);
           background-repeat: no-repeat;
           background-size: cover;
         }
       }
-      /*Estido de fundo que o body tera no Celular*/
       @media (max-width: 375px) {
         body.telaLocais {
-          background-image: url(img/locaisCel.jpg); /*aqui tem que substituir pelo caminho da foto para o fundo*/
+          background-image: url(img/locaisCel.jpg);
           background-repeat: no-repeat;
           background-size: cover;
         }
-      }
-
-
-/* Angelo fico louco e virou front*/
-
-.div-project {
-        --glow-color: rgb(255, 255, 255);
-        --glow-spread-color: rgb(255, 255, 255);
-        --enhanced-glow-color: rgb(255, 255, 255);
-        --btn-color: rgb(0, 0, 0);
-
-        border: 0.25em solid white;
-        padding: 1em 3em;
-        color: var(--btn-color);
-        font-size: 15px;
-        font-weight: bold;
-        background-color: rgba(255, 255, 255, 0.6);
-        outline: none;
-        box-shadow: 0 0 0p 2pxem white;
-        text-shadow: 0 0 0.5em var(--glow-color);
-        position: relative;
-        transition: all 0.2s;
-        border-radius: 4px;
-      }
-      .div-project:hover {
-        color: var(--btn-color);
-        border: 0.25em solid var(--glow-spread-color);
-        background-color: transparent;
-        box-shadow: 0 0 10px 4px var(--glow-color),
-          inset 0 0 10px 4px var(--glow-color);
-        color: var(--glow-color);
       }
