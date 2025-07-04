@@ -1,195 +1,315 @@
-<?php
-// CONEXÃO COM BANCO
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "feira";
-
-$conn = new mysqli($servername, $username, $password, $database);
-if ($conn->connect_error) {
-    die("Erro na conexão: " . $conn->connect_error);
-}
-
-// PEGAR PARÂMETROS
-$bloco = $_GET['bloco'] ?? null;
-$sala = $_GET['sala'] ?? null;
-$pagina = $_GET['pagina'] ?? 1;
-
-// HTML: TOPO
-function headerHTML() {
-    echo <<<HTML
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Feira de Projetos</title>
-    <link href="style.css" rel="stylesheet"> 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Locais</title>
 </head>
 <body class="telaLocais">
-<div>
-    <nav>
-         
-    <header>
-
-      <div class="menu-toggle" id="mobile-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-
-      <div class="logo-container">
-        <img src="etecmcm.png" alt="Logo MCM"/>
-      </div>
-
-      <div class="ORGInfoHeader">
-        <h1>Locais</h1><!--Nome da tela (ex. Avaliação)-->
-      </div>
-
-    </header>
-
-    <div id="mySideMenu" class="side-menu">
-      <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
-      <a href="#">Mapa</a>
-      <a href="#">Avaliação</a>
-      <a href="#">Projetos</a>
-      <a href="#">Ranking</a>
-      <a href="#">Cursos</a>
-      <a href="#">Sobre a Etec</a>
-      <a href="#">Configurações</a>
+  <header>
+    <div class="menu-toggle" id="mobile-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
     </div>
 
-    </nav>
-HTML;
+    <div class="logo-container">
+      <img src="etecmcm.png" alt="Logo MCM"/>
+    </div>
+
+    <div class="ORGInfoHeader">
+      <h1>Locais</h1>
+    </div>
+  </header>
+
+  <div id="mySideMenu" class="side-menu">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
+    <a href="#">Mapa</a>
+    <a href="#">Avaliação</a>
+    <a href="#">Projetos</a>
+    <a href="#">Ranking</a>
+    <a href="#">Cursos</a>
+    <a href="#">Sobre a Etec</a>
+    <a href="#">Configurações</a>
+  </div>
+
+  <div id="conteudo" style="text-align: center;"></div>
+
+  <script>
+    document.getElementById('mobile-menu').addEventListener('click', function() {
+      this.classList.toggle('active');
+      openMenu();
+    });
+
+    function openMenu() {
+      document.getElementById('mySideMenu').style.width = '250px';
+    }
+
+    function closeMenu() {
+      document.getElementById('mySideMenu').style.width = '0';
+      document.getElementById('mobile-menu').classList.remove('active');
+    }
+
+    const historico = [];
+
+    function mostrarPagina(pagina) {
+  const areaConteudo = document.getElementById('conteudo');
+  const dado = dados[pagina];
+
+  areaConteudo.innerHTML = "";
+
+  if (dado.opcoes) {
+    dado.opcoes.forEach(opcao => {
+      const botao = document.createElement("button");
+      botao.className = "btnLocal";
+      botao.textContent = opcao.nome;
+      botao.onclick = () => {
+        if (opcao.proximo && dados[opcao.proximo]) {
+          historico.push(pagina);
+          mostrarPagina(opcao.proximo);
+        } else {
+          alert("Conteúdo ainda não disponível.");
+        }
+      };
+      areaConteudo.appendChild(botao);
+      areaConteudo.appendChild(document.createElement("br"));
+    });
+  }
+
+  if (historico.length > 0) {
+    const btnVoltar = document.createElement("button");
+    btnVoltar.className = "btnLocal";
+    btnVoltar.textContent = "Voltar";
+    btnVoltar.onclick = () => {
+      const anterior = historico.pop();
+      mostrarPagina(anterior);
+    };
+    areaConteudo.appendChild(btnVoltar);
+  }
 }
 
-// HTML: RODAPÉ
-function footerHTML() {
-    echo <<<HTML
-</div>
-
-<script>
-      document.getElementById('mobile-menu').addEventListener('click', function() {
-        this.classList.toggle('active');
-        openMenu();
-      });
-
-      function openMenu() {
-        document.getElementById('mySideMenu').style.width = '250px';
+    const dados = {
+      locais: {
+        opcoes: [
+          { nome: "Bloco A", proximo: "blocoA" },
+          { nome: "Bloco B", proximo: "blocoB" },
+          { nome: "Biblioteca", proximo: "biblioteca" },
+          { nome: "Auditório", proximo: "auditorio" },
+          { nome: "Quadra", proximo: "quadra" },
+        ]
+      },
+      blocoA: {
+        opcoes: [
+          { nome: "Sala 1", proximo: "sala1A" },
+          { nome: "Sala 2", proximo: "sala2A" },
+          { nome: "Sala 3", proximo: "sala3A" },
+          { nome: "Sala 4", proximo: "sala4A" },
+          { nome: "Sala 5", proximo: "sala5A" },
+          { nome: "Sala 6", proximo: "sala6A" },
+          { nome: "Sala 7", proximo: "sala7A" },
+          { nome: "Sala 8", proximo: "sala8A" },
+        ]
+      },
+      sala1A: {
+        opcoes: [
+          { nome: "Projeto 1", id: "Projeto1" },
+          { nome: "Projeto 2", id: "Projeto2" },
+          { nome: "Projeto 3", id: "Projeto3" },
+          { nome: "Projeto 4", id: "Projeto4" },
+          { nome: "Projeto 5", id: "Projeto5" },
+          { nome: "Projeto 6", id: "Projeto6" },
+          { nome: "Projeto 7", id: "Projeto7" },
+          { nome: "Projeto 8", id: "Projeto8" },
+        ]
+      },
+      sala2A: {
+        opcoes: [
+          { nome: "Projeto 1", id: "Projeto1" },
+          { nome: "Projeto 2", id: "Projeto2" },
+          { nome: "Projeto 3", id: "Projeto3" },
+          { nome: "Projeto 4", id: "Projeto4" },
+          { nome: "Projeto 5", id: "Projeto5" },
+          { nome: "Projeto 6", id: "Projeto6" },
+          { nome: "Projeto 7", id: "Projeto7" },
+          { nome: "Projeto 8", id: "Projeto8" },
+        ]
+      },
+      sala3A: {
+        opcoes: [
+          { nome: "Projeto 1", id: "Projeto1" },
+          { nome: "Projeto 2", id: "Projeto2" },
+          { nome: "Projeto 3", id: "Projeto3" },
+          { nome: "Projeto 4", id: "Projeto4" },
+          { nome: "Projeto 5", id: "Projeto5" },
+          { nome: "Projeto 6", id: "Projeto6" },
+          { nome: "Projeto 7", id: "Projeto7" },
+          { nome: "Projeto 8", id: "Projeto8" },
+        ]
+      },
+      sala4A: {
+        opcoes: [
+          { nome: "Projeto 1", id: "Projeto1" },
+          { nome: "Projeto 2", id: "Projeto2" },
+          { nome: "Projeto 3", id: "Projeto3" },
+          { nome: "Projeto 4", id: "Projeto4" },
+          { nome: "Projeto 5", id: "Projeto5" },
+          { nome: "Projeto 6", id: "Projeto6" },
+          { nome: "Projeto 7", id: "Projeto7" },
+          { nome: "Projeto 8", id: "Projeto8" },
+        ]
+      },
+      sala5A: {
+        opcoes: [
+          { nome: "Projeto 1", id: "Projeto1" },
+          { nome: "Projeto 2", id: "Projeto2" },
+          { nome: "Projeto 3", id: "Projeto3" },
+          { nome: "Projeto 4", id: "Projeto4" },
+          { nome: "Projeto 5", id: "Projeto5" },
+          { nome: "Projeto 6", id: "Projeto6" },
+          { nome: "Projeto 7", id: "Projeto7" },
+          { nome: "Projeto 8", id: "Projeto8" },
+        ]
+      },
+      sala6A: {
+        opcoes: [
+          { nome: "Projeto 1", id: "Projeto1" },
+          { nome: "Projeto 2", id: "Projeto2" },
+          { nome: "Projeto 3", id: "Projeto3" },
+          { nome: "Projeto 4", id: "Projeto4" },
+          { nome: "Projeto 5", id: "Projeto5" },
+          { nome: "Projeto 6", id: "Projeto6" },
+          { nome: "Projeto 7", id: "Projeto7" },
+          { nome: "Projeto 8", id: "Projeto8" },
+        ]
+      },
+      sala7A: {
+        opcoes: [
+          { nome: "Projeto 1", id: "Projeto1" },
+          { nome: "Projeto 2", id: "Projeto2" },
+          { nome: "Projeto 3", id: "Projeto3" },
+          { nome: "Projeto 4", id: "Projeto4" },
+          { nome: "Projeto 5", id: "Projeto5" },
+          { nome: "Projeto 6", id: "Projeto6" },
+          { nome: "Projeto 7", id: "Projeto7" },
+          { nome: "Projeto 8", id: "Projeto8" },
+        ]
+      },
+      sala8A: {
+        opcoes: [
+          { nome: "Projeto 1", id: "Projeto1" },
+          { nome: "Projeto 2", id: "Projeto2" },
+          { nome: "Projeto 3", id: "Projeto3" },
+          { nome: "Projeto 4", id: "Projeto4" },
+          { nome: "Projeto 5", id: "Projeto5" },
+          { nome: "Projeto 6", id: "Projeto6" },
+          { nome: "Projeto 7", id: "Projeto7" },
+          { nome: "Projeto 8", id: "Projeto8" },
+        ]
+      },
+      blocoB: {
+        opcoes: [
+          { nome: "Sala 1", proximo: "sala1B" },
+          { nome: "Sala 2", proximo: "sala2B" },
+          { nome: "Sala 3", proximo: "sala3B" },
+          { nome: "Sala 4", proximo: "sala4B" },
+          { nome: "Sala 5", proximo: "sala5B" },
+        ]
+      },
+      sala1B: {
+        opcoes: [
+          { nome: "Projeto 1", id: "Projeto1" },
+          { nome: "Projeto 2", id: "Projeto2" },
+          { nome: "Projeto 3", id: "Projeto3" },
+          { nome: "Projeto 4", id: "Projeto4" },
+          { nome: "Projeto 5", id: "Projeto5" },
+          { nome: "Projeto 6", id: "Projeto6" },
+          { nome: "Projeto 7", id: "Projeto7" },
+          { nome: "Projeto 8", id: "Projeto8" },
+        ]
+      },
+      sala2B: {
+        opcoes: [
+          { nome: "Projeto 1", id: "Projeto1" },
+          { nome: "Projeto 2", id: "Projeto2" },
+          { nome: "Projeto 3", id: "Projeto3" },
+          { nome: "Projeto 4", id: "Projeto4" },
+          { nome: "Projeto 5", id: "Projeto5" },
+          { nome: "Projeto 6", id: "Projeto6" },
+          { nome: "Projeto 7", id: "Projeto7" },
+          { nome: "Projeto 8", id: "Projeto8" },
+        ]
+      },
+      sala3B: {
+        opcoes: [
+          { nome: "Projeto 1", id: "Projeto1" },
+          { nome: "Projeto 2", id: "Projeto2" },
+          { nome: "Projeto 3", id: "Projeto3" },
+          { nome: "Projeto 4", id: "Projeto4" },
+          { nome: "Projeto 5", id: "Projeto5" },
+          { nome: "Projeto 6", id: "Projeto6" },
+          { nome: "Projeto 7", id: "Projeto7" },
+          { nome: "Projeto 8", id: "Projeto8" },
+        ]
+      },
+      sala4B: {
+        opcoes: [
+          { nome: "Projeto 1", id: "Projeto1" },
+          { nome: "Projeto 2", id: "Projeto2" },
+          { nome: "Projeto 3", id: "Projeto3" },
+          { nome: "Projeto 4", id: "Projeto4" },
+          { nome: "Projeto 5", id: "Projeto5" },
+          { nome: "Projeto 6", id: "Projeto6" },
+          { nome: "Projeto 7", id: "Projeto7" },
+          { nome: "Projeto 8", id: "Projeto8" },
+        ]
+      },
+      sala5B: {
+        opcoes: [
+          { nome: "Projeto 1", id: "Projeto1" },
+          { nome: "Projeto 2", id: "Projeto2" },
+          { nome: "Projeto 3", id: "Projeto3" },
+          { nome: "Projeto 4", id: "Projeto4" },
+          { nome: "Projeto 5", id: "Projeto5" },
+          { nome: "Projeto 6", id: "Projeto6" },
+          { nome: "Projeto 7", id: "Projeto7" },
+          { nome: "Projeto 8", id: "Projeto8" },
+        ]
+      },
+      biblioteca: {
+        opcoes: [
+          { nome: "Projeto 1", id: "Projeto1" },
+          { nome: "Projeto 2", id: "Projeto2" },
+          { nome: "Projeto 3", id: "Projeto3" },
+          { nome: "Projeto 4", id: "Projeto4" },
+        ]
+      },
+      auditorio: {
+        opcoes: [
+          { nome: "palestra 1", id: "palestra1" },
+          { nome: "palestra 2", id: "palestra2" },
+          { nome: "palestra 3", id: "palestra3" },
+          { nome: "palestra 4", id: "palestra4" },
+          { nome: "palestra 5", id: "palestra5" },
+          { nome: "palestra 6", id: "palestra6" },
+          { nome: "palestra 7", id: "palestra7" },
+          { nome: "palestra 8", id: "palestra8" },
+        ]
+      },
+      quadra: {
+        opcoes:[
+          { nome: "Projeto 1", id: "Projeto1" },
+          { nome: "Projeto 2", id: "Projeto2" },
+          { nome: "Projeto 3", id: "Projeto3" },
+          { nome: "Projeto 4", id: "Projeto4" },
+          { nome: "Projeto 5", id: "Projeto5" },
+          { nome: "Projeto 6", id: "Projeto6" },
+          { nome: "Projeto 7", id: "Projeto7" },
+          { nome: "Projeto 8", id: "Projeto8" },
+        ]
       }
+    };
 
-      function closeMenu() {
-        document.getElementById('mySideMenu').style.width = '0';
-        document.getElementById('mobile-menu').classList.remove('active');
-      }
-    </script>
+    mostrarPagina("locais");
+  </script>
 </body>
 </html>
-HTML;
-}
-
-// PÁGINA 1 — ESCOLHA DE BLOCO
-if (!$bloco && !$sala) {
-    headerHTML();
-    echo '<div class="BTNLocais">';
-    echo '<h1>Blocos</h1>';
-    echo '<a href="?bloco=A"><button>Bloco A</button></a>';
-    echo '<a href="?bloco=B"><button>Bloco B</button></a>';
-    echo '</div>';
-    footerHTML();
-    exit;
-}
-
-// PÁGINA 2 — SALAS DO BLOCO
-if ($bloco && !$sala) {
-    headerHTML();
-
-    $stmt = $conn->prepare("SELECT DISTINCT sala FROM tbl_projetos WHERE bloco = ? ORDER BY sala ASC");
-    $stmt->bind_param("s", $bloco);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    echo "<div class='BTNLocais'>";
-    echo "<a href='index.php' class='btn btn-sm btn-outline-dark mb-3'><h5>&larr; Voltar</h5></a>";
-    echo "<h1>Salas do Bloco $bloco</h1>";
-    while ($row = $result->fetch_assoc()) {
-        $salaNome = htmlspecialchars($row['sala']);
-        echo "<div>
-                <a href='?bloco=$bloco&sala=" . urlencode($salaNome) . "'><button>$salaNome</button></a>
-              </div>";
-    }
-    echo "</div>";
-
-    $stmt->close();
-    footerHTML();
-    exit;
-}
-
-// TELA INTERMEDIÁRIA — QUADRA
-if ($bloco && isset($_GET['sala']) && $sala === 'Quadra' && !isset($_GET['pagina'])) {
-    headerHTML();
-
-    $stmt = $conn->prepare("SELECT COUNT(*) as total FROM tbl_projetos WHERE bloco = ? AND sala = ?");
-    $stmt->bind_param("ss", $bloco, $sala);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $total = $result->fetch_assoc()['total'];
-    $stmt->close();
-
-    $grupos = ceil($total / 8);
-    echo "<div class='BTNLocais'>";
-    echo "<a href='?bloco=$bloco' class='btn btn-sm btn-outline-dark mb-3'><h5>&larr; Voltar para salas</h5></a>";
-    echo "<h1>Projetos na Quadra</h1>";
-    for ($i = 1; $i <= $grupos; $i++) {
-            $inicio = (($i - 1) * 8) + 1;
-            $fim = min($i * 8, $total);
-            echo "<div>
-            <a href='?bloco=$bloco&sala=Quadra&pagina=$i'><button>Projetos " . $inicio . "-" . $fim . "</button></a>
-            </div>";
-    }
-
-    echo "</div>";
-    footerHTML();
-    exit;
-}
-
-// PÁGINA 3 — PROJETOS DA SALA (QUALQUER SALA)
-if ($bloco && $sala) {
-    headerHTML();
-
-    $limit = 8;
-    $offset = ($pagina - 1) * $limit;
-
-    $stmt = $conn->prepare("SELECT titulo_projeto, descricao_projeto, ods, stand, prof_orientador FROM tbl_projetos WHERE bloco = ? AND sala = ? ORDER BY posicao_projeto ASC LIMIT ? OFFSET ?");
-    $stmt->bind_param("ssii", $bloco, $sala, $limit, $offset);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows === 0) {
-        echo "<div>Nenhum projeto encontrado para essa sala.</div>";
-    } else {
-        echo "<div class='BTNLocais'>";
-        echo "<a href='?bloco=$bloco' class='btn btn-sm btn-outline-dark mb-3'><h5>&larr; Voltar para salas</h5></a>";
-        echo "<h1>Projetos da Sala $sala (Bloco $bloco)</h1>";
-        while ($row = $result->fetch_assoc()) {
-            echo "      <div class='BTNLocais div-project'>
-                            <h5>{$row['titulo_projeto']}</h5>
-                            <p>{$row['descricao_projeto']}</p>
-                            <p><strong>ODS:</strong> {$row['ods']}</p>
-                            <p><strong>Stand:</strong> {$row['stand']}</p>
-                            <p><strong>Orientador:</strong> {$row['prof_orientador']}</p>
-                        </div>";
-        }
-        echo "</div>";
-    }
-
-    $stmt->close();
-    footerHTML();
-    exit;
-}
-?>
