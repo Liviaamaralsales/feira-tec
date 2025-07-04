@@ -1,0 +1,111 @@
+
+    #paginaCursos {
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      padding: 1%;
+    }
+    #paginaCursos .container {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    #paginaCursos section {
+      background-color: #ffffff;
+      margin-bottom: 5%;
+      box-shadow: 0 0.25em 0.5em rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #paginaCursos section > div:first-child {
+      display: flex;
+      align-items: center;
+      padding: 3%;
+      gap: 4%;
+      height: 80px;
+      box-sizing: border-box;
+    }
+    #paginaCursos section h2 {
+      font-size: 1.2em;
+      color: #fff;
+      border-radius: 8px;
+    }
+    #paginaCursos .cursos {
+      background-color: white;
+      width: 100%;
+      max-width: 900px;
+      border: none;
+      border-radius: 12px;
+      justify-content: center;
+      margin: 0 auto;
+    }
+    #paginaCursos .manha > div:first-child {
+      background-color: rgba(12, 93, 67, 0.4);
+      border:  2px solid #00F1A4;
+      border-radius: 2%;
+      width: 100%;
+      max-width: 100%;
+    }
+    #paginaCursos .tarde > div:first-child {
+      background-color: rgba(175, 118, 0, 0.4);
+      border: 2px solid #FAA900;
+      border-radius: 2%;
+      width: 100%;
+      max-width: 100%;
+    }
+    #paginaCursos .noite > div:first-child {
+      background-color: rgba(175, 118, 0, 0.4);
+      border: 2px solid #FAA900;
+      border-radius: 2%;
+      width: 100%;
+      max-width: 100%;
+    }
+    #paginaCursos ul {
+      list-style: none;
+      padding: 10px 20px;
+    }
+    #paginaCursos ul li {
+      background-color: #000;
+      margin-bottom: 8px;
+      padding: 2%;
+      border-radius: 3%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      white-space: normal;
+    }
+    #paginaCursos ul li a {
+      background-color: white;
+      color: #000;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 6%;
+      white-space: nowrap;
+    }
+    @media screen and (max-width: 1024px) {
+      #paginaCursos .container {
+        max-width: 95%;
+      }
+      #paginaCursos .cursos {
+        max-width: 100%;
+        width: 100%;
+      }
+      #paginaCursos section {
+        max-width: 100%;
+      }
+    }
+    @media screen and (max-width: 480px) {
+      #paginaCursos section > div:first-child {
+        height: auto;
+        padding: 2%;
+      }
+      #paginaCursos section h2 {
+        font-size: 16px;
+      }
+      #paginaCursos ul {
+        padding: 8px 12px;
+      }
+      #paginaCursos ul li {
+        font-size: 14px;
+      }
+    }
