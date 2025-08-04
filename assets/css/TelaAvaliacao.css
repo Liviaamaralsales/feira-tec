@@ -140,6 +140,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      height: fit-content;
+      width: fit-content;
     }
     .logo-container img {
       width: 50px;
@@ -341,3 +346,4 @@
     align-items: center;
     gap: 20px;
 }
+
