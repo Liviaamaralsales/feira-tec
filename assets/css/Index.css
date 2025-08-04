@@ -121,13 +121,16 @@
         gap: 2px;
       }
 
-      .logo-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        top: 20px;
-      }
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      height: fit-content;
+      width: fit-content;
+    }
       .logo-container img {
         width: 80px;
         height: 80px;
@@ -237,3 +240,4 @@
       .rateOrg a{
         color: white;
       }
+
